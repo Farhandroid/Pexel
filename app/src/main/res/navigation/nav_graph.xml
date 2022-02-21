@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Farhan Tanvir on 12/5/21, 5:08 PM
+  ~ Last modified 12/5/21, 5:06 PM
+  ~ Contact : farhantanvir65@gmail.com
+  -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/imageSearchFragment">
+
+    <fragment
+        android:id="@+id/imageSearchFragment"
+        android:name="com.farhan.tanvir.pexels.presentation.image_search.ImageSearchFragment"
+        android:label="fragment_image_search"
+        tools:layout="@layout/fragment_image_search" >
+        <action
+            android:id="@+id/action_imageSearchFragment_to_imageViewerFragment"
+            app:destination="@id/imageViewerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageViewerFragment"
+        android:name="com.farhan.tanvir.pexels.presentation.image_viewer.ImageViewerFragment"
+        android:label="fragment_image_viewer"
+        tools:layout="@layout/fragment_image_viewer">
+        <argument
+            android:name="selected_image"
+            app:argType="com.farhan.tanvir.pexels.data.model.Src" />
+    </fragment>
+</navigation>
