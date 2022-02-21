@@ -1,13 +1,17 @@
-# Pexels-MVVM
+![Pexel](https://user-images.githubusercontent.com/32593150/154967110-d4bd32ca-ef22-45a7-992b-b2e0818719a2.jpg)
 
-![20211205_220131](https://user-images.githubusercontent.com/32593150/144747727-ae470ca7-ca28-4586-8bd9-ee75b862ce00.gif)
+# Pexel
+***A minimalistic Android application Built with MVVM (Retrofit , DataBinding , Coroutine , Mockwebserver , Truth and many more ...).***
 
 
+#### <br/><br/>Get the latest Pexel app apk from below 👇
+[![Pexel](https://img.shields.io/badge/MovieMania-APK-blue)](https://github.com/Farhandroid/Pexel/releases/download/latest/Pexel-debug.apk)
 
 
-このアプリは、Pexel apiを使用して画像を検索します。 ユーザーは写真を選択して全画面で見ることができます。
+## <br/><br/>Screenshort 📸
+![Screenshort](https://user-images.githubusercontent.com/32593150/154968121-f53847e6-93fd-49bf-b6ca-592e54f78d52.jpg)
 
-### このプロジェクトで使用されるもの
+## <br/><br/>Built With 🛠
 - MVVM Design Pattern
 - Unit Test
 - Viewmodel
@@ -24,11 +28,11 @@
 
 
 
-### このアプリを実行するには。
+## <br/><br/> How to run this app
 
-- このリポジトリをクローンする
-- https://www.pexels.com/ から「Authorization Key」を取得。
-- 「graddle.properties」ファイルにAuthorization Keyを記述。
-- アプリのビルド
+- Clone this repository
+- Get Authorization Key from [PEXEL](https://www.pexels.com/)
+- Add Authorization Key in graddle.properties
+- Build the application
 
 
