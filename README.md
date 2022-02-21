@@ -5,7 +5,7 @@
 
 
 #### <br/><br/>Get the latest Pexel app apk from below 👇
-[![Pexel](https://img.shields.io/badge/MovieMania-APK-blue)](https://github.com/Farhandroid/Pexel/releases/download/latest/Pexel-debug.apk)
+[![Pexel](https://img.shields.io/badge/Pexel-APK-blueviolet)](https://github.com/Farhandroid/Pexel/releases/download/latest/Pexel-debug.apk)
 
 
 ## <br/><br/>Screenshort 📸
