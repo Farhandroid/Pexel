@@ -7,6 +7,8 @@
 #### <br/><br/>Get the latest Pexel app apk from below 👇
 [![Pexel](https://img.shields.io/badge/Pexel-APK-blueviolet)](https://github.com/Farhandroid/Pexel/releases/download/latest/Pexel-debug.apk)
 
+### <br/><br/>There is an [ article](https://betterprogramming.pub/android-unit-testing-with-mockwebserver-and-truth-assertion-library-efe77bd6b14e) about this  . Please check it .
+
 
 ## <br/><br/>Screenshort 📸
 ![Screenshort](https://user-images.githubusercontent.com/32593150/154968121-f53847e6-93fd-49bf-b6ca-592e54f78d52.jpg)
