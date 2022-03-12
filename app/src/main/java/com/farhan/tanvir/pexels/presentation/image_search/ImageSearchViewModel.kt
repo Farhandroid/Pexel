@@ -11,15 +11,17 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.farhan.tanvir.pexels.data.ImageRepository
-import com.farhan.tanvir.pexels.data.util.Resource
 import com.farhan.tanvir.pexels.data.model.APIResponse
+import com.farhan.tanvir.pexels.data.util.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ImageSearchViewModel() :
+@HiltViewModel
+class ImageSearchViewModel @Inject constructor(private val imageRepository: ImageRepository) :
     ViewModel() {
     val searchedImageData: MutableLiveData<Resource<APIResponse>> = MutableLiveData()
-    private val imageRepository= ImageRepository()
 
     fun getSearchedImage(searchQuery: String, page: Int) = viewModelScope.launch(Dispatchers.IO) {
         searchedImageData.postValue(Resource.Loading())

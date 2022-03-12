@@ -12,9 +12,11 @@ import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.farhan.tanvir.pexels.R
 import com.farhan.tanvir.pexels.utils.network.NetworkStatusHelper
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
