@@ -14,7 +14,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.farhan.tanvir.pexels.R
@@ -22,17 +22,19 @@ import com.farhan.tanvir.pexels.data.model.Photo
 import com.farhan.tanvir.pexels.data.util.Resource
 import com.farhan.tanvir.pexels.databinding.FragmentImageSearchBinding
 import com.farhan.tanvir.pexels.presentation.adapter.ImageAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ImageSearchFragment : Fragment() {
 
-    private lateinit var viewModel: ImageSearchViewModel
+    private val viewModel: ImageSearchViewModel by viewModels()
     private lateinit var fragmentImageSearchBinding: FragmentImageSearchBinding
     private lateinit var imageAdapter: ImageAdapter
     private val itemPerPage = 40
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_image_search, container, false)
@@ -44,8 +46,6 @@ class ImageSearchFragment : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.show()
         activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         fragmentImageSearchBinding = FragmentImageSearchBinding.bind(view)
-        viewModel =
-            ViewModelProvider(this)[ImageSearchViewModel::class.java]
         fragmentImageSearchBinding.searchET.doAfterTextChanged {
             it?.let {
                 if (it.isNotEmpty()) {
@@ -56,7 +56,7 @@ class ImageSearchFragment : Fragment() {
         fragmentImageSearchBinding.clearSearchIV.setOnClickListener {
             fragmentImageSearchBinding.searchET.text.clear()
         }
-        viewModel.searchedImageData.observe(viewLifecycleOwner, { response ->
+        viewModel.searchedImageData.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is Resource.Success -> {
                     response.data?.let { apiResponse ->
@@ -70,7 +70,7 @@ class ImageSearchFragment : Fragment() {
 
                 }
             }
-        })
+        }
         initRecyclerView()
         initActions()
     }
