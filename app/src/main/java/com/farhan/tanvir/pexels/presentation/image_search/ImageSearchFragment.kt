@@ -28,7 +28,10 @@ import dagger.hilt.android.AndroidEntryPoint
 class ImageSearchFragment : Fragment() {
 
     private val viewModel: ImageSearchViewModel by viewModels()
-    private lateinit var fragmentImageSearchBinding: FragmentImageSearchBinding
+
+    private var _binding: FragmentImageSearchBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var imageAdapter: ImageAdapter
     private val itemPerPage = 40
 
@@ -37,7 +40,8 @@ class ImageSearchFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_image_search, container, false)
+        _binding = FragmentImageSearchBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,16 +49,15 @@ class ImageSearchFragment : Fragment() {
         //ツールバーを表示
         (requireActivity() as AppCompatActivity).supportActionBar?.show()
         activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        fragmentImageSearchBinding = FragmentImageSearchBinding.bind(view)
-        fragmentImageSearchBinding.searchET.doAfterTextChanged {
+        binding.searchET.doAfterTextChanged {
             it?.let {
                 if (it.isNotEmpty()) {
                     getSearchResultData(it.toString())
                 }
             }
         }
-        fragmentImageSearchBinding.clearSearchIV.setOnClickListener {
-            fragmentImageSearchBinding.searchET.text.clear()
+        binding.clearSearchIV.setOnClickListener {
+            binding.searchET.text.clear()
         }
         viewModel.searchedImageData.observe(viewLifecycleOwner) { response ->
             when (response) {
@@ -84,7 +87,7 @@ class ImageSearchFragment : Fragment() {
 
     private fun initRecyclerView() {
         imageAdapter = ImageAdapter()
-        fragmentImageSearchBinding.imageRV.apply {
+        binding.imageRV.apply {
             adapter = imageAdapter
             layoutManager = GridLayoutManager(requireContext(), 2)
         }
@@ -103,5 +106,11 @@ class ImageSearchFragment : Fragment() {
                 )
             }
         })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.imageRV.adapter = null
+        _binding = null
     }
 }

@@ -16,20 +16,22 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.farhan.tanvir.pexels.R
+import com.farhan.tanvir.pexels.databinding.FragmentImageSearchBinding
 import com.farhan.tanvir.pexels.databinding.FragmentImageViewerBinding
 
 class ImageViewerFragment : Fragment() {
 
-    private lateinit var imageViewerBinding: FragmentImageViewerBinding
+    private var _binding: FragmentImageViewerBinding? = null
+    private val binding get() = _binding!!
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        imageViewerBinding = FragmentImageViewerBinding.bind(view)
 
         val args : ImageViewerFragmentArgs by navArgs()
         val imageSrc = args.selectedImage
-        imageViewerBinding.imageSrc=imageSrc
+        binding.imageSrc=imageSrc
 
-        imageViewerBinding.backImageView.setOnClickListener{
+        binding.backImageView.setOnClickListener{
             findNavController().popBackStack()
         }
     }
@@ -41,6 +43,12 @@ class ImageViewerFragment : Fragment() {
         //ツールバーを非表示
         activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_image_viewer, container, false)
+        _binding = FragmentImageViewerBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
