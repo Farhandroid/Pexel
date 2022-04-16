@@ -46,7 +46,7 @@ class ImageSearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //ツールバーを表示
+        //Show toolbar
         (requireActivity() as AppCompatActivity).supportActionBar?.show()
         activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         binding.searchET.doAfterTextChanged {

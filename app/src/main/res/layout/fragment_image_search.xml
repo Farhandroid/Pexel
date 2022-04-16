@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Created by Farhan Tanvir on 12/5/21, 5:08 PM
   ~ Last modified 12/5/21, 5:06 PM
   ~ Contact : farhantanvir65@gmail.com
   -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/md_grey_100">
@@ -39,9 +39,9 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="12dp"
                     app:cardCornerRadius="4dp"
+                    app:layout_constraintBottom_toTopOf="@id/imageRV"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/imageRV"
                     app:layout_constraintTop_toBottomOf="@+id/findWallpaperTV">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -84,10 +84,10 @@
                             android:background="@null"
                             android:ems="10"
                             android:fontFamily="@font/roboto"
-                            android:textSize="@dimen/font_body_size"
                             android:hint="@string/search_wallpaper"
                             android:inputType="textPersonName"
                             android:textAlignment="viewStart"
+                            android:textSize="@dimen/font_body_size"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/clearSearchIV"
                             app:layout_constraintStart_toEndOf="@+id/searchIView"
@@ -116,10 +116,10 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="8dp"
-                    android:textColor="@color/white"
                     android:fontFamily="@font/roboto"
-                    android:textSize="@dimen/font_body_size"
                     android:text="@string/find_wallpaper"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_body_size"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -129,3 +129,4 @@
         </androidx.core.widget.NestedScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
