@@ -6,7 +6,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_error_placeholder.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1203125" />
-        <entry key="app/src/main/res/layout/fragment_image_search.xml" value="0.41900939941406257" />
+        <entry key="app/src/main/res/layout/fragment_image_search.xml" value="0.1691542288557214" />
         <entry key="app/src/main/res/layout/fragment_image_viewer.xml" value="0.1" />
         <entry key="app/src/main/res/layout/image_item.xml" value="0.1203125" />
       </map>

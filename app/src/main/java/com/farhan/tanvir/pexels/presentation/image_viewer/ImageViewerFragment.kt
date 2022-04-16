@@ -15,8 +15,6 @@ import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.farhan.tanvir.pexels.R
-import com.farhan.tanvir.pexels.databinding.FragmentImageSearchBinding
 import com.farhan.tanvir.pexels.databinding.FragmentImageViewerBinding
 
 class ImageViewerFragment : Fragment() {
@@ -27,20 +25,20 @@ class ImageViewerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val args : ImageViewerFragmentArgs by navArgs()
+        val args: ImageViewerFragmentArgs by navArgs()
         val imageSrc = args.selectedImage
-        binding.imageSrc=imageSrc
+        binding.imageSrc = imageSrc
 
-        binding.backImageView.setOnClickListener{
+        binding.backImageView.setOnClickListener {
             findNavController().popBackStack()
         }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
-        //ツールバーを非表示
+        //Hide toolbar
         activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         // Inflate the layout for this fragment
         _binding = FragmentImageViewerBinding.inflate(inflater, container, false)
